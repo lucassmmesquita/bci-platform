@@ -29,3 +29,7 @@ error_log
 # Data files (sensitive)
 config.php
 formulario_startups_bci.csv
+
+# Deploy scripts (contain credentials)
+deploy.sh
+deploy_frontend.py
