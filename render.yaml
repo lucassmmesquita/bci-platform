@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: bci-ventures-api
+    runtime: python
+    region: oregon
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: FTP_HOST
+        sync: false
+      - key: FTP_PORT
+        value: "21"
+      - key: FTP_USER
+        sync: false
+      - key: FTP_PASSWORD
+        sync: false
+      - key: FTP_BASE_PATH
+        value: "/public_html/uploads"
+      - key: PHP_BRIDGE_URL
+        value: "https://bciventures.com.br/api_bridge.php"
+      - key: CORS_ORIGINS
+        value: '["https://bciventures.com.br","http://localhost:5173"]'
+      - key: DEBUG
+        value: "false"
+      - key: PYTHON_VERSION
+        value: "3.9.7"
